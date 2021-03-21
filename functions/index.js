@@ -36,7 +36,10 @@ app.get("/screams", (req, res) => {
     .catch((err) => console.error(err));
 });
 
-app.post("/scream", (req, res) => {
+const FBAuth = (req, res, next);
+
+//Post one scream
+app.post("/scream", FBAuth, (req, res) => {
   if (req.method !== "POST") {
     return res.status(400).json({ error: "Method not allowed" });
   }
